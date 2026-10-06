@@ -11,3 +11,7 @@ in `lib/`, and example unit test in `test/`.
 
   // Question de compréhension de palier 3: 
   //Flutter utilise-t-il des paramètres nommés plutôt que positionnels car les paramètres nommés améliorent grandement la lisibilité du code évitent de se tromper sur l'ordre des arguments et permettent de repérer immédiatement à quoi correspond chaque valeur
+
+  // Question de compréhension de palier 4: 
+  //Une List est une collection ordonnée des éléments indexés par des entiers de 0 à n-1
+  // alos qu'une Map est une collection des paires "Clé-Valeur" non ordonnées, chaque element possede un clé unique.

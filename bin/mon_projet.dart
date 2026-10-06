@@ -1,28 +1,42 @@
 import 'package:mon_projet/mon_projet.dart' as mon_projet;
 void main() {
-  print(carre(5));
-  print(moyenne(12, 16));
+  List<int> notes = [12, 8, 15, 17, 9];
+  // TODO 1 : ajouter la note 11 à la liste
+  notes.add(11);
 
-  afficherFiche(nom: 'Ahmed');
-  afficherFiche(nom: 'Sarra', classe: 'DSI3', moyenne: 15.5);
+  // TODO 2 : afficher le nombre de notes (propriété length)
+  print('${notes.length} notes');
+
+  // TODO 3 : afficher chaque note, une par ligne, avec une boucle for
+  for (var n in notes) {
+    print(n);
+  }
+
+  // TODO 4 : créer une liste des notes >= 10 avec where, puis l'afficher
+  List<int> notesAdmises = notes.where((n) => n >= 10).toList();
+  print('Notes >= 10 : $notesAdmises');
+
+  // TODO 5 : calculer et afficher la moyenne
+  int somme = 0;
+  for (var n in notes) {
+    somme += n;
+  }
+  double moyenne = somme / notes.length;
+  print('Moyenne : ${moyenne.toStringAsFixed(2)}');
+
+  Map<String, int> ages = {'Ahmed': 22, 'Sarra': 21};
+
+  // TODO 6 : ajouter 'Youssef' avec l'âge 23
+  ages['Youssef'] = 23;
+
+  // TODO 7 : parcourir la map et afficher 'Ahmed a 22 ans'
+  ages.forEach((cle, valeur) {
+    print('$cle a $valeur ans');
+  });
 }
 
-// TODO 1 : fonction fléchée qui renvoie le carré d'un entier
-int carre(int n) => n * n;
 
-// TODO 2 : renvoie la moyenne de deux notes (double)
-double moyenne(double n1, double n2) {
-  return (n1 + n2) / 2;
-}
-
-// TODO 3 : compléter la signature
-
-void afficherFiche({required String nom,String classe = 'Non précisée',double? moyenne,}) {
-  // TODO 4 : afficher
-  // Nom : Ahmed | Classe : Non précisée | Moyenne : non renseignée
-  String moyenneStr = moyenne != null ? moyenne.toString() : 'non renseignée';
-  print('Nom : $nom | Classe : $classe | Moyenne : $moyenneStr');
-}
 
 // Question de compréhension : 
-//Flutter utilise-t-il des paramètres nommés plutôt que positionnels car les paramètres nommés améliorent grandement la lisibilité du code évitent de se tromper sur l'ordre des arguments et permettent de repérer immédiatement à quoi correspond chaque valeur
+//Une List est une collection ordonnée des éléments indexés par des entiers de 0 à n-1
+// alos qu'une Map est une collection des paires "Clé-Valeur" non ordonnées, chaque element possede un clé unique.
