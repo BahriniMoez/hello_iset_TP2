@@ -9,4 +9,5 @@ in `lib/`, and example unit test in `test/`.
   // Question de compréhension de palier 2: 
   //Dart interdit null par défaut Pour éviter "NullPointerException" et garantir la sécurité du code par la détection des absences de valeurs dès la compilation plutôt qu'au moment de l'exécution.
 
-  
+  // Question de compréhension de palier 3: 
+  //Flutter utilise-t-il des paramètres nommés plutôt que positionnels car les paramètres nommés améliorent grandement la lisibilité du code évitent de se tromper sur l'ordre des arguments et permettent de repérer immédiatement à quoi correspond chaque valeur

@@ -1,31 +1,28 @@
 import 'package:mon_projet/mon_projet.dart' as mon_projet;
 void main() {
-  String? surnom; // aucune valeur pour l'instant
-  String? email = 'ahmed@iset.tn';
+  print(carre(5));
+  print(moyenne(12, 16));
 
-  // TODO 1 : afficher le surnom, ou 'Aucun surnom' s'il est null (opérateur ??)
-  print(surnom ?? 'Aucun surnom');
-
-  // TODO 2 : afficher la longueur de email sans planter si email est null (?.)
-  print(email?.length);
-
-  // TODO 3 : donner une valeur à surnom, puis réafficher le TODO 1
-  surnom = 'Doudou';
-  print(surnom ?? 'Aucun surnom');
-
-  // TODO 4 : décommenter, lire l'erreur, puis commenter à nouveau
-  // String? vide;
-  // print(vide!.length); 
-  // Erreur : Null check operator used on a null value (car 'vide' vaut null et on a forcé avec !).
-
-  print(decrire(null));
-  print(decrire('Ahmed'));
+  afficherFiche(nom: 'Ahmed');
+  afficherFiche(nom: 'Sarra', classe: 'DSI3', moyenne: 15.5);
 }
-// TODO 5 : compléter cette fonction
-// elle renvoie 'Bonjour X' si nom n'est pas null, sinon 'Bonjour visiteur'
-String decrire(String? nom) {
-  return 'Bonjour ${nom ?? 'visiteur'}';
+
+// TODO 1 : fonction fléchée qui renvoie le carré d'un entier
+int carre(int n) => n * n;
+
+// TODO 2 : renvoie la moyenne de deux notes (double)
+double moyenne(double n1, double n2) {
+  return (n1 + n2) / 2;
+}
+
+// TODO 3 : compléter la signature
+
+void afficherFiche({required String nom,String classe = 'Non précisée',double? moyenne,}) {
+  // TODO 4 : afficher
+  // Nom : Ahmed | Classe : Non précisée | Moyenne : non renseignée
+  String moyenneStr = moyenne != null ? moyenne.toString() : 'non renseignée';
+  print('Nom : $nom | Classe : $classe | Moyenne : $moyenneStr');
 }
 
 // Question de compréhension : 
-//Dart interdit null par défaut Pour éviter "NullPointerException" et garantir la sécurité du code par la détection des absences de valeurs dès la compilation plutôt qu'au moment de l'exécution.
+//Flutter utilise-t-il des paramètres nommés plutôt que positionnels car les paramètres nommés améliorent grandement la lisibilité du code évitent de se tromper sur l'ordre des arguments et permettent de repérer immédiatement à quoi correspond chaque valeur
