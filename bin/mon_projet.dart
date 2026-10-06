@@ -1,42 +1,36 @@
 import 'package:mon_projet/mon_projet.dart' as mon_projet;
 void main() {
-  List<int> notes = [12, 8, 15, 17, 9];
-  // TODO 1 : ajouter la note 11 à la liste
-  notes.add(11);
-
-  // TODO 2 : afficher le nombre de notes (propriété length)
-  print('${notes.length} notes');
-
-  // TODO 3 : afficher chaque note, une par ligne, avec une boucle for
-  for (var n in notes) {
-    print(n);
+  final etudiants = [
+    Etudiant(nom: 'Ahmed', moyenne: 14.5),
+    Etudiant(nom: 'Sarra', moyenne: 9.0),
+    Etudiant(nom: 'Youssef', moyenne: 12.0),
+  ];
+  // TODO 4 : afficher chaque étudiant (une boucle for)
+  for (var e in etudiants) {
+    print(e);
   }
-
-  // TODO 4 : créer une liste des notes >= 10 avec where, puis l'afficher
-  List<int> notesAdmises = notes.where((n) => n >= 10).toList();
-  print('Notes >= 10 : $notesAdmises');
-
-  // TODO 5 : calculer et afficher la moyenne
-  int somme = 0;
-  for (var n in notes) {
-    somme += n;
+  // TODO 5 : afficher uniquement les admis (moyenne >= 10)
+  // indice : etudiants.where((e) => e.estAdmis)
+  final admisNoms = etudiants.where((e) => e.estAdmis).map((e) => e.nom).join(', ');
+  print('Admis : $admisNoms');
+}
+class Etudiant {
+  // TODO 1 : déclarer final nom (String) et final moyenne (double)
+  final String nom;
+  final double moyenne;
+  // TODO 2 : constructeur avec paramètres nommés obligatoires
+  Etudiant({required this.nom, required this.moyenne});
+  // TODO 3 : getter estAdmis qui renvoie true si moyenne >= 10
+  bool get estAdmis => moyenne >= 10;
+  // TODO 3 bis : redéfinir toString() pour renvoyer
+  // 'Ahmed - 14.5 (admis)' ou 'Sarra - 9.0 (non admis)'
+  @override
+  String toString() {
+    String statut = estAdmis ? 'admis' : 'non admis';
+    return '$nom - $moyenne ($statut)';
   }
-  double moyenne = somme / notes.length;
-  print('Moyenne : ${moyenne.toStringAsFixed(2)}');
-
-  Map<String, int> ages = {'Ahmed': 22, 'Sarra': 21};
-
-  // TODO 6 : ajouter 'Youssef' avec l'âge 23
-  ages['Youssef'] = 23;
-
-  // TODO 7 : parcourir la map et afficher 'Ahmed a 22 ans'
-  ages.forEach((cle, valeur) {
-    print('$cle a $valeur ans');
-  });
 }
 
-
-
-// Question de compréhension : 
-//Une List est une collection ordonnée des éléments indexés par des entiers de 0 à n-1
-// alos qu'une Map est une collection des paires "Clé-Valeur" non ordonnées, chaque element possede un clé unique.
+// Question de compréhension :  Pourquoi déclarer les propriétés en final ?
+//La déclaration en final garantit que les données ne peuvent plus être modifiées après la création de l'objet.
+//ces données declaré en final garantissent un comportement prévisible des composants et facilitent la gestion de l'état et le rendu des interfaces.

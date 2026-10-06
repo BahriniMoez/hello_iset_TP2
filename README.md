@@ -15,3 +15,8 @@ in `lib/`, and example unit test in `test/`.
   // Question de compréhension de palier 4: 
   //Une List est une collection ordonnée des éléments indexés par des entiers de 0 à n-1
   // alos qu'une Map est une collection des paires "Clé-Valeur" non ordonnées, chaque element possede un clé unique.
+
+
+  // Question de compréhension de palier 5:  Pourquoi déclarer les propriétés en final ?
+  //La déclaration en final garantit que les données ne peuvent plus être modifiées après la création de l'objet.
+  //ces données declaré en final garantissent un comportement prévisible des composants et facilitent la gestion de l'état et le rendu des interfaces.
