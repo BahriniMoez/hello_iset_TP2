@@ -1,27 +1,31 @@
 import 'package:mon_projet/mon_projet.dart' as mon_projet;
-
 void main() {
-  // TODO 1 : déclarer nom (String), age (int), moyenne (double), inscrit (bool)
-  String nom = 'Moez';
-  int age = 21;
-  double moyenne = 18.7543;
-  bool inscrit = true;
+  String? surnom; // aucune valeur pour l'instant
+  String? email = 'ahmed@iset.tn';
 
-  // TODO 2 : déclarer const tva = 0.19 et final anneeCourante = DateTime.now().year
-  const tva = 0.19;
-  final anneeCourante = DateTime.now().year;
+  // TODO 1 : afficher le surnom, ou 'Aucun surnom' s'il est null (opérateur ??)
+  print(surnom ?? 'Aucun surnom');
 
-  // TODO 3 : afficher avec l'interpolation
-  print('Je m\'appelle $nom, j\'ai $age ans.');
+  // TODO 2 : afficher la longueur de email sans planter si email est null (?.)
+  print(email?.length);
 
-  // TODO 4 : afficher la moyenne arrondie à 2 décimales
-  print('Moyenne : ${moyenne.toStringAsFixed(2)}');
-  print('Année : $anneeCourante');
+  // TODO 3 : donner une valeur à surnom, puis réafficher le TODO 1
+  surnom = 'Doudou';
+  print(surnom ?? 'Aucun surnom');
 
-  // TODO 5 : décommenter la ligne suivante, lire l'erreur, puis la commenter
-  // tva = 0.20; 
-  // Erreur : Can't assign to the const variable 'tva'.
+  // TODO 4 : décommenter, lire l'erreur, puis commenter à nouveau
+  // String? vide;
+  // print(vide!.length); 
+  // Erreur : Null check operator used on a null value (car 'vide' vaut null et on a forcé avec !).
 
-  // Question de compréhension :
-  // const est fixé dès la compilation (valeur strictement statique), tandis que final est fixé à l'exécution (valeur dynamique).
+  print(decrire(null));
+  print(decrire('Ahmed'));
 }
+// TODO 5 : compléter cette fonction
+// elle renvoie 'Bonjour X' si nom n'est pas null, sinon 'Bonjour visiteur'
+String decrire(String? nom) {
+  return 'Bonjour ${nom ?? 'visiteur'}';
+}
+
+// Question de compréhension : 
+//Dart interdit null par défaut Pour éviter "NullPointerException" et garantir la sécurité du code par la détection des absences de valeurs dès la compilation plutôt qu'au moment de l'exécution.
